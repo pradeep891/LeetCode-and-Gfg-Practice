@@ -6,11 +6,13 @@ public:
             res.push_back(cur);
             return;
         }
-        for(int i=0; i<10; i++){
-            if(abs(pre - i) == k){
-                solve(n-1  , k , res , cur*10 + i , i);
-            }            
-        }
+        
+            if(pre + k <= 9){
+                solve(n-1  , k , res , cur*10 + pre +k , pre+k);
+            }    
+            if( 0 <= pre - k && k!=0)
+                solve(n-1  , k , res , cur*10 + pre-k , pre-k);
+        
     }
     vector<int> numsSameConsecDiff(int n, int k) {
         // vector<int>vis(10 , 0);
