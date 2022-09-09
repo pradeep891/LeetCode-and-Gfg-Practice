@@ -7,13 +7,15 @@ public:
     }
     int numberOfWeakCharacters(vector<vector<int>>& properties) {
         sort(properties.begin() , properties.end() , cmp);
-        priority_queue<int>pq;
+        // priority_queue<int>pq;
+        
         int ct = 0;
-        pq.push(properties[0][1]);
+        // pq.push();
+        int mxd = properties[0][1];
         for(int i=1; i<properties.size(); i++){
             int d = properties[i][1];
-            if(pq.top() > d) ct++;
-            pq.push(d);
+            if(mxd > d) ct++;
+            mxd = max(mxd , d);
         }
         return ct;
     }
