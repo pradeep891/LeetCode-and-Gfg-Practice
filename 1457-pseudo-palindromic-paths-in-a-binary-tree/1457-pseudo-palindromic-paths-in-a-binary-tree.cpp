@@ -12,67 +12,33 @@
 class Solution {
 public:
     
-    int ct = 0;
-    map<int , int>mp;
-    
+    int ct = 0;    
+    int ar[10] = {0};    
     bool check(){
         int k = 0;
-        int k2 = 0;
-        for(auto i : mp){
-            k2 = i.second;
-            if(i.second % 2 == 1)
+        for(int i=0; i<10; i++){
+            if(ar[i] % 2 == 1)
                 k++;
         }
-        
-        if(mp.size() == 1 && k2 == 1)
-            return false;
-        
-        if(k <= 1)
-        {
-            return true;
-        }
-        return false;
+        return k <= 1 ;
     }
     
-    void solve(TreeNode* root){
-        
+    void solve(TreeNode* root){       
         
         if(root == nullptr)
-            return;
-       
+            return;       
         
         int k = root->val;
-        mp[k]++;
-        
-//         if(check()){
-//             cout << k << " -> ";
-//             for(auto i : mp)
-//                 cout << "{" << i.first << "," << i.second << "} ";
-//             cout << endl;
-            
-//             ct++;
-//         }
-        
-        
-         
-        if(root->left == nullptr && root->right == nullptr && check()){
-            ct++;
-        }
+        ar[k]++;
+        if(root->left == nullptr && root->right == nullptr && check()) ct++;
         
         solve(root->left);
         solve(root->right);
         
-        if(mp[k] == 1){
-            mp.erase(k);
-        }
-        else
-            mp[k]--;
+        ar[k]--;        
     }
     int pseudoPalindromicPaths (TreeNode* root) {
-        if(root == nullptr) return 0;
-        if(root->left == nullptr && root->right == nullptr) return 1;
         solve(root);
-        // cout << endl;
         return ct;
     }
 };
