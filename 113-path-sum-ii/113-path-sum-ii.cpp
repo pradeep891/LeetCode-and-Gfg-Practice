@@ -17,11 +17,7 @@ public:
         
         cur.push_back(root->val);
         if(tar  == root->val  && root->left == nullptr && root->right == nullptr)
-        {
             ans.push_back(cur);
-            cur.pop_back();
-            return;
-        }
         
         solve(root->left , ans , cur , tar-root->val);
         solve(root->right , ans , cur , tar-root->val);
