@@ -23,11 +23,11 @@ public:
         vector<int>vis(len , 0);
         
         
+        vector<int>v;        
         for(int i=0; i<len ; i++){
             if(vis[i] == 1) 
                 continue;
             
-            vector<int>v;        
             dfs(i, vis, adj , v);
             string k = "";
             for(auto j : v)
@@ -40,6 +40,7 @@ public:
                 s[j] = k[id];
                 id++;
             }
+            v.clear();
         }
         
         return s;
