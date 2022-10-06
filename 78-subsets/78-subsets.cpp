@@ -28,7 +28,7 @@ public:
                 int p = 1 << (len-j-1);
                 int r = k & p;
                 // cout << p << " " <<  r << " | ";
-                if(r == p)
+                if(r & p)
                     cur.push_back(nums[j]);
             }
             // cout << endl;
