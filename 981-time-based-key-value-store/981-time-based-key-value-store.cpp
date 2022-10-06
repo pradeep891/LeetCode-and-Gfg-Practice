@@ -2,7 +2,7 @@ class TimeMap {
 public:
     
     
-    unordered_map<string , vector< pair<string , int>> >mp;
+    map<string , vector< pair<string , int>> >mp;
     TimeMap() {
         
     }
@@ -29,9 +29,17 @@ public:
     }
     string get(string key, int timestamp) {
         if(mp.find(key) == mp.end())
-            return "";        
-        int len = mp[key].size();        
+            return "";
+        
+        // string s = "";
+        int len = mp[key].size();
+        
         return binarysearch(mp[key] , len , timestamp);
+        // for(auto i : mp[key]){
+        //     if(i.second <= timestamp)
+        //         s = i.first;
+        // }
+        // return s;
     }
 };
 
