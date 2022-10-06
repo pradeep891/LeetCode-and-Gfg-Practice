@@ -25,7 +25,7 @@ public:
             vector<int>cur;
             for(int j=0; j<len; j++){
                 
-                int p = 1 << (len-j-1);
+                int p = 1 <<  j;
                 // int r = k & p;
                 // cout << p << " " <<  r << " | ";
                 if(k & p)
