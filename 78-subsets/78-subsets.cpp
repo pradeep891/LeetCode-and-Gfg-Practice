@@ -26,9 +26,9 @@ public:
             for(int j=0; j<len; j++){
                 
                 int p = 1 << (len-j-1);
-                int r = k & p;
+                // int r = k & p;
                 // cout << p << " " <<  r << " | ";
-                if(r & p)
+                if(k & p)
                     cur.push_back(nums[j]);
             }
             // cout << endl;
