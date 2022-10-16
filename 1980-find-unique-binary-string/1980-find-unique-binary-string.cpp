@@ -12,11 +12,9 @@ public:
                 n +=  (str[i] - '0') * pow(2 , k);
                 k++;
             }
-            // k++;
             arr[n] = 1;
-            // cout << n << " ";
         }
-        // cout << endl;
+        
         string ans;
         for(int i=0; i<total ; i++){
             if(arr[i] == 0)
