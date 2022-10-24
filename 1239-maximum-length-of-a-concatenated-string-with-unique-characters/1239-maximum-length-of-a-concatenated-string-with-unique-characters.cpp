@@ -5,8 +5,10 @@ public:
         int id = 0;
         while(n){
             if(n % 2){
-                for(auto ch : arr[id])
+                for(auto ch : arr[id]){
                     fre[ch - 'a']++;
+                    if(fre[ch-'a'] > 1) return 0;                       
+                }
             }
             id++;
             n /= 2;
@@ -14,7 +16,6 @@ public:
         
         int ct = 0;
         for(auto i : fre){
-            if(i > 1) return 0;
             if(i == 1) ct++;
         }
         return ct;        
