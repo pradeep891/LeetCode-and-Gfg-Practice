@@ -29,25 +29,26 @@ public:
     
     bool isSubsetSum(vector<int>arr, int sum){
         // code here 
-        vector< vector<int> >dp(arr.size()+1 , vector<int>(sum+1 , -1));
+        vector< vector<int> >dp(arr.size() , vector<int>(sum+1 , 0));
         // return false;
-        return solve(arr , arr.size() , sum , dp);
+        // return solve(arr , arr.size() , sum , dp);
         
-        // for(int i=0; i<arr.size(); i++)
-        // dp[i][0] = 1;
+        for(int i=arr.size()-1 ; i>=0 ; i--)
+        dp[i][0] = 1;
         
-        // for(int i=arr.size()-1 ; i>=0 ; i--){
-        //     for(int j=1; j<=sum; j++){
-        //         int temp = 0;
-        //         if(j - arr[i] >=0)
-        //         temp = dp[i+1][j - arr[i]];
-        //         temp += dp[i+1][j];
+        dp[0][arr[0]] = 1;
+        
+        for(int i=1; i<arr.size(); i++){
+            for(int j=1; j<=sum; j++){
+                int pick = 0;
+                if(j - arr[i] >= 0)
+                pick = dp[i-1][j - arr[i]];
+                int notpick = dp[i-1][j];
                 
-        //         if(temp >= 1) j = 1;
-        //         dp[i][j] = temp;
-        //     }
-        // }
-        // return dp[0][sum];// solve(0 , arr , sum , dp);
+                dp[i][j] = pick | notpick;
+            }
+        }
+        return dp[arr.size()-1][sum];// solve(0 , arr , sum , dp);
         
     }
 };
