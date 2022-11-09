@@ -27,13 +27,8 @@ public:
     bool isSubsetSum(vector<int>arr, int sum){
         // code here 
         vector< vector<int> >dp(arr.size() , vector<int>(sum+1 , -1));
-        solve(0 , arr , sum , dp);
+        return solve(0 , arr , sum , dp);
         
-        // for(auto i : dp){
-        //     for(auto j : i) cout << j << " " ;
-        //     cout << endl;
-        // }
-        return dp[0][sum] == 1;
     }
 };
 
