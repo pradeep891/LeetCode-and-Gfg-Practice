@@ -5,12 +5,12 @@
  */
 var rotate = function(nums, k) {
     k = k % nums.length;
+    // console.log(k);
     
-    nums.reverse();
-    let numsleft = nums.slice(0 , k);
-    numsleft.reverse();
-    let numsright = nums.slice(k);
-    numsright.reverse();
-    
-    nums.splice(0 , nums.length , ...numsleft, ...numsright);
+    if(k === 0) return;
+    let end = nums.slice(-k);
+    nums.splice(nums.length - k);
+    // console.log(nums);
+    // console.log(end);
+    nums.splice(0 , 0, ...end);
 };
