@@ -16,8 +16,8 @@ var guessNumber = function(n) {
     while(l <= h){
         let m = l + (h -l)//2;
         let k = guess(m);
-        if(k == 0) return m ;
-        k == 1 ? l = m + 1 : h = m - 1;
+        if(k === 0) return m ;
+        k === 1 ? l = m + 1 : h = m - 1;
     }
     return -1;
 };
