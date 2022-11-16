@@ -22,7 +22,8 @@ S = "aaac"<br>
 <div style="background: rgb(238, 238, 238); border: 1px solid rgb(204, 204, 204); padding: 5px 10px; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor:#222426; --darkreader-inline-border-top:#3e4446; --darkreader-inline-border-right:#3e4446; --darkreader-inline-border-bottom:#3e4446; --darkreader-inline-border-left:#3e4446;"><span style="font-size:18px"><strong>Input:</strong><br>
 S = "geeksforgeeks"<br>
 <strong>Output: </strong><br>
-62</span></div>
+62<br>
+<strong>Explanation:</strong> There are 91&nbsp;substrings of the given strings. Like, the beauty of substring "geek" is 1. In this way the sum of&nbsp;beauties of all substrings are 62.</span></div>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 You don't need to read input or print anything. Your task is to complete the function <strong>beautySum()</strong> which takes&nbsp;string <strong>S</strong> as input paramters&nbsp;and returns the sum of <strong>beauty</strong> of all its substrings.&nbsp;</span></p>
