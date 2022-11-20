@@ -8,7 +8,7 @@ public:
             if(i != ' ') k.push_back(i);
         }
         
-        cout << "k " << k << endl;
+        // cout << "k " << k << endl;
         
         int i=0;
         s = "";
@@ -42,7 +42,7 @@ public:
             }
         }
         
-        cout << "s = " << s << " ";
+        // cout << "s = " << s << " ";
         int ans  = 0;
         i = 0;
         while(i < s.size()){
@@ -57,7 +57,7 @@ public:
                 num += s[i];
                 i++;
             }
-            cout << "num = " << num << endl;
+            // cout << "num = " << num << endl;
             ans += sign * stoi(num);
         }
         return to_string(ans);
