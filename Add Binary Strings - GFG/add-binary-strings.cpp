@@ -9,41 +9,26 @@ class Solution{
 public:	
 	string addBinary(string A, string B)
 	{
-	    // your code here
 	    reverse(A.begin() , A.end());
 	    reverse(B.begin() , B.end());
-	    
-	    if(A.size() < B.size())
-	    swap(A , B);
-	   // cout << A << " " << B << " | ";
+	    string ans = "";
 	    int carry = 0;
-	    for(int i=0; i<B.size(); i++){
-	        int a = A[i] - '0';
-	        int b = B[i] - '0';
-	        a = a + b + carry;
-	        carry = a / 2;
-	        a %= 2;
-	        A[i] = '0' + a;
-	       // cout << A[i];
-	    }
-	    for(int i=B.size(); i<A.size(); i++){
-	        int a = A[i] - '0';
-	        a = a + carry;
-	        carry = a / 2;
-	        a %= 2;
-	        A[i] = '0' + a;
-	    }
 	    
-	    if(carry){
-	        A.push_back(carry + '0');
+	    for(int i=0; i<max(A.size() , B.size()); i++){
+	        int a = 0 , b = 0;
+	        if(i<A.size()) a = A[i] - '0';
+	        if(i<B.size()) b = B[i] - '0';
+	        int sum = a + b + carry;
+	        carry = sum / 2;
+	        sum %= 2;
+	        ans.push_back(sum + '0');
 	    }
+	    if(carry) ans.push_back('1');
 	    
-	    while(A.back() == '0')
-	    A.pop_back();
+	    while(ans.back() == '0') ans.pop_back();
 	    
-	    reverse(A.begin() , A.end());
-	   // cout << endl;
-	    return A;
+	    reverse(ans.begin() , ans.end());
+	    return ans;
 	}
 };
 
