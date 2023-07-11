@@ -12,25 +12,61 @@ class Solution
     {
  		// Your code goes here.
  		int r1= 0 ,r2 = n-1, c1 = 0, c2= m-1;
- 		while(r1 < r2 && c1 < c2){
- 		    int element = (r2 - r1) * 2  + 2 * (c2 - c1);
- 		 //   cout << element << " \n";
- 		    if(k > element)
- 		    {
- 		        k -= element;
- 		     //   cout << "remaing k = " << k << " \n";
- 		        r1++;
- 		        r2--;
- 		        c1++;
- 		        c2--;
- 		    }
- 		    else{
- 		        break;
- 		    }
- 		}
+//  		while(r1 < r2 && c1 < c2){
+//  		    int element = (r2 - r1) * 2  + 2 * (c2 - c1);
+//  		 //   cout << element << " \n";
+//  		    if(k > element)
+//  		    {
+//  		        k -= element;
+//  		     //   cout << "remaing k = " << k << " \n";
+//  		        r1++;
+//  		        r2--;
+//  		        c1++;
+//  		        c2--;
+//  		    }
+//  		    else{
+//  		        break;
+//  		    }
+//  		}
  		
-//  		cout << r1 << " " << r2 << " " << c1 << " " << c2 << " " <<  k << " \n";
- 		for(int c = c1; c <= c2; c++){
+// //  		cout << r1 << " " << r2 << " " << c1 << " " << c2 << " " <<  k << " \n";
+//  		for(int c = c1; c <= c2; c++){
+//  		    int el = a[r1][c];
+//  		    k--;
+ 		    
+//  		    if(k == 0) return el;
+//  		}
+//  		r1++;
+ 		
+//  		for(int r = r1; r<=r2 ; r++){
+//  		    int el = a[r][c2];
+//  		    k--;
+//  		    if(k == 0) return el;
+//  		}
+//  		c2--;
+ 		
+//  		if(r1 <= r2){
+//  		    for(int c = c2; c>=c1; c--){
+//  		        int el = a[r2][c];
+//  		        k--;
+ 		    
+//  		    if(k == 0) return el;
+//  		    }
+//  		    r2--;
+//  		}
+ 		
+//  		if(c1 <= c2){
+//  		    for(int r = r2; r>= r1; r--){
+//  		         int el = a[r][c1];
+//  		    k--;
+//  		    if(k == 0) return el;
+//  		    }
+//  		    c1++;
+//  		}
+ 		
+ 		
+ 		while(true){
+ 		    	for(int c = c1; c <= c2; c++){
  		    int el = a[r1][c];
  		    k--;
  		    
@@ -64,6 +100,7 @@ class Solution
  		    c1++;
  		}
  		
+ 		}
  		return 0;
  		
  		
