@@ -19,64 +19,48 @@ class Solution{
        reverse(s2.begin(), s2.end());
        
        int len = s1.size() + s2.size() + 1;
-       vector<vector<int>>v;
+       vector<int>prev(len , 0);
+       
        int zero = -1;
        for(auto i : s2){
            zero++;
             if(i == '-') break;
-           vector<int>temp(zero , 0);
+            
            int carry = 0;
+           int id = zero;
            for(auto j : s1){
+               
                if(j == '-') break;
                int p = j - '0';
                int q = i - '0';
-               
-               int res = p * q + carry;
-               temp.push_back(res % 10);
+              
+               int res = p * q + carry + prev[id];
+               prev[id] = res % 10;
                carry = res / 10;
+                id++;
            }
-           temp.push_back(carry);
-           while(temp.size() < len) temp.push_back(0);
-           v.push_back(temp);
+           while(carry){
+             int res =  carry + prev[id];
+               prev[id] = res % 10;
+               carry = res / 10;
+               id++;
+           }
+           
            
        }
+ 
+      while(prev.back() == 0) prev.pop_back();
        
-    //   for(auto i : v){
-    //       for(auto j :  i) cout << j << " ";
-    //       cout << endl;
-    //   }
+      string ans = "";
+      if(sign == -1) ans.push_back('-');
        
-       vector<int>res;
-       int carry = 0;
-       
-       for(int i=0; i<v[0].size(); i++){
-           for(int j=0; j<v.size(); j++){
-               carry += v[j][i];
-           }
-           res.push_back(carry % 10);
-            carry /= 10;
+       for(int i=prev.size()-1; i>=0; i--){
+           char ch = prev[i] + '0';
+          ans.push_back(ch);
        }
-    
-    
-      while(carry){
-          res.push_back(carry % 10);
-            carry/= 10;
-      }
+       
+      return ans;
       
-      while(res.back() == 0) res.pop_back();
-       
-       string ans = "";
-       if(sign == -1) ans.push_back('-');
-       
-       reverse(res.begin(), res.end());
-       for(auto i : res) {
-           char ch = i + '0';
-           ans.push_back(ch);
-       }
-       return ans;
-    //   for(auto i : res) cout << i << " ";
-    //   cout << endl;
-    //   return "";
     }
 
 };
