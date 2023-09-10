@@ -36,23 +36,10 @@ class Solution
 {
     public:
         Node* insert(Node* node, int data) {
-        
-            // Your code goes here
-            if(node == nullptr){
-                Node* d = new Node(data);
-                return d;
-            }
-            
-            if(node->data < data){
-                Node* r =  insert(node->right , data);
-                node->right = r;
-            }
-            if(node->data > data) {
-                Node* l = insert(node->left , data);
-                node->left = l;
-            }
+            if(node == nullptr) return new Node(data);
+            else if(node->data < data) node->right = insert(node->right , data);
+            else if(node->data > data) node->left = insert(node->left , data);
             return node;
-                
         }
 
 };
