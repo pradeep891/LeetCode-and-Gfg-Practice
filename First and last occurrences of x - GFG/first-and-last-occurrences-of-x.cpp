@@ -7,48 +7,26 @@ class Solution
 {
     public:
     
-    int first(int ar[], int n, int num){
+    int solve(int ar[], int n, int num , int isfirst){
         int l = 0 , r = n-1 , ans = -1;
         while(l <= r){
             int mid = l + (r-l)/2;
-            if(ar[mid] < num){
-                l = mid + 1;
-            }
-            else{
+            if(ar[mid] == num){
                 ans = mid;
-                r = mid - 1;
-                
+                if(isfirst) r = mid - 1;
+                else l = mid + 1;
             }
-            
+            else if(ar[mid] < num) l = mid + 1;
+            else r = mid - 1;
         }
-        if(ar[ans] == num)
         return ans;
-        return -1;
-    }
-    
-    int last(int ar[], int n, int num){
-        int l = 0 , r = n-1;
-        int ans = -1;
-        while(l <= r){
-            int mid = l + (r-l)/2;
-            if(ar[mid] <= num){
-                ans = mid;
-                l = mid + 1;
-            }
-            else{
-                r = mid - 1;
-            }
-        }
-        if(ar[ans] == num)
-        return ans;
-        return -1;
     }
     
     vector<int> find(int arr[], int n , int x )
     {
         // code here
-        int a = first(arr , n , x);
-        int b = last(arr , n , x);
+        int a = solve(arr , n , x , 1);
+        int b = solve(arr , n , x , 0);
         return {a , b};
     }
 };
