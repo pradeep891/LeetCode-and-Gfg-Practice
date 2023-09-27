@@ -22,29 +22,22 @@ using namespace std;
 class Solution{
   public:
     vector<int> printClosest(int arr[], int brr[], int n, int m, int x) {
-        //code here
         int i = n-1;
         int j = 0;
-        
         int ans = INT_MAX;
         int a , b;
         while(i >= 0 && j < m){
             int sum = arr[i] + brr[j];
             int dif = abs(sum - x);
-            // cout << i << " " << j << " " << dif << endl;
             if( dif < ans){
                 ans = dif;
                 a = i;
                 b = j;
             }
-            
             if(sum < x) j++;
-            else if(sum == x) {
-                break;
-            }
+            else if(sum == x) break;
             else i--;
         }
-        // cout << a << " " << b << endl;
         return {arr[a] , brr[b]};
     }
 };
